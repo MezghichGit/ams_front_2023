@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,10 +7,12 @@ export class ProviderService {
 
   urlProviders = 'http://127.0.0.1:8080/providers/';
 
+  basicToken:any = sessionStorage.getItem('basicToken');
 
   constructor(private Http: HttpClient) { }
   listProviders() {
-    return this.Http.get(this.urlProviders);
+    const headers = new HttpHeaders({ Authorization: this.basicToken});
+    return this.Http.get(this.urlProviders, {headers});
   }
 
   deleteProvider(idProvider: any) {
@@ -22,7 +24,8 @@ export class ProviderService {
 
 
   createProvider(provider: any) {
-    return this.Http.post(this.urlProviders, provider);
+    const headers = new HttpHeaders({ Authorization: this.basicToken});
+    return this.Http.post(this.urlProviders, provider, {headers});
   }
 
 

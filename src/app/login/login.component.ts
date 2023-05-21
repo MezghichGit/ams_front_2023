@@ -21,10 +21,17 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
+    this.loginservice.authenticate(this.username, this.password).subscribe(
+      data => this.router.navigate(['/listProvider']),
+      error =>this.invalidLogin = true
+
+    );
+    /*
     if (this.loginservice.authenticate(this.username, this.password)) {
       this.router.navigate(['/listProvider'])
     } else
       this.invalidLogin = true
-  }
+  }*/
+}
 
 }
