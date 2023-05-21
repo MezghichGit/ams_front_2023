@@ -9,6 +9,8 @@ import { AddProviderComponent } from './add-provider/add-provider.component';
 import { ListProviderComponent } from './list-provider/list-provider.component';
 import { UpdateProviderComponent } from './update-provider/update-provider.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PageNotFoundComponentComponent } from './page-not-found-component/page-
     AddProviderComponent,
     ListProviderComponent,
     UpdateProviderComponent,
-    PageNotFoundComponentComponent
+    PageNotFoundComponentComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

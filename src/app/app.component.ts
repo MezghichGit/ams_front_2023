@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ams_front';
+ parent = 'Projet AMS 2023';
+
+ processEvent(message :any) {
+  alert("Message du fils est : " + message);
+}
+
+
 }
