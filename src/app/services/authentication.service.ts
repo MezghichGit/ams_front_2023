@@ -10,9 +10,12 @@ export class AuthenticationService {
 
   authenticate(username: any, password: any) {
 
-    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    //const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
 
-    return this.httpClient.get('http://127.0.0.1:8080/basicauth', { headers }).pipe
+    const basicToken = 'Basic ' + btoa(username + ':' + password);
+    sessionStorage.setItem('basicToken', basicToken);
+    //return this.httpClient.get('http://127.0.0.1:8080/basicauth', { headers }).pipe
+    return this.httpClient.get('http://127.0.0.1:8080/basicauth').pipe
       (
         map(
           (userData:any) => {
@@ -20,7 +23,7 @@ export class AuthenticationService {
             sessionStorage.setItem('username', username);
             sessionStorage.setItem('prenom', userData["name"]);
             sessionStorage.setItem('nom', userData["lastName"]);
-            sessionStorage.setItem('basicToken', basicToken);
+            //sessionStorage.setItem('basicToken', basicToken);
             //console.log(username + " " + password);
             console.log(userData);
             return userData;
@@ -40,11 +43,11 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     // retourne true si l'user est connecté sinon false
-    let basicToken = sessionStorage.getItem('basicToken')
+    let basicToken = sessionStorage.getItem('username')
     //console.log(!(user === null))
     return (!(basicToken === null))
   }
   logOut() {
-    sessionStorage.removeItem('basicToken')
+    sessionStorage.removeItem('username')
   }
 }
