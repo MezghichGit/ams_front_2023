@@ -11,6 +11,7 @@ import { UpdateProviderComponent } from './update-provider/update-provider.compo
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogoutComponent } from './logout/logout.component';
     UpdateProviderComponent,
     PageNotFoundComponentComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,9 @@ import { AuthenticationService } from '../services/authentication.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  nom : any = sessionStorage.getItem("nom");
+  prenom : any = sessionStorage.getItem("prenom");
   @Input() fils: any;
   @Output() eventToSend = new EventEmitter();
   constructor(public loginService: AuthenticationService) {

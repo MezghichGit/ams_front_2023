@@ -15,9 +15,11 @@ export class AuthenticationService {
     return this.httpClient.get('http://127.0.0.1:8080/basicauth', { headers }).pipe
       (
         map(
-          userData => {
+          (userData:any) => {
             let basicToken = 'Basic ' + btoa(username + ':' + password);
             sessionStorage.setItem('username', username);
+            sessionStorage.setItem('prenom', userData["name"]);
+            sessionStorage.setItem('nom', userData["lastName"]);
             sessionStorage.setItem('basicToken', basicToken);
             //console.log(username + " " + password);
             console.log(userData);

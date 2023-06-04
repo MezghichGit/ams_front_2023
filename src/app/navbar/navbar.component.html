@@ -1,6 +1,7 @@
 {{fils}}
 <button class="btn btn-primary" (click)="sendEvent()">Lancer event</button>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
   <a class="navbar-brand" href="#">Providers</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
@@ -8,8 +9,12 @@
       <a class="nav-item nav-link" *ngIf="loginService.isUserLoggedIn()"   routerLink="/addProvider" routerLinkActive="active">Ajouter provider</a>
       <a class="nav-item nav-link"  *ngIf="!loginService.isUserLoggedIn()"  routerLink="/login" routerLinkActive="active">Login</a>
       <a class="nav-item nav-link"  *ngIf="loginService.isUserLoggedIn()"   routerLink="/logout" routerLinkActive="active">LogOut</a>
+      <a class="nav-item nav-link" routerLink="/registration" *ngIf="!loginService.isUserLoggedIn()" routerLinkActive="active">Registration</a>
+      <span class="nav-item nav-link" style="padding-left:700px" *ngIf="loginService.isUserLoggedIn()">  Logged user : {{nom}} {{prenom}}</span>
     </div>
   </div>
 </nav>
+
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <router-outlet></router-outlet>

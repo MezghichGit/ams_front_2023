@@ -16,10 +16,12 @@ export class ProviderService {
   }
 
   deleteProvider(idProvider: any) {
-    return this.Http.delete(this.urlProviders + idProvider)
+    const headers = new HttpHeaders({ Authorization: this.basicToken});
+    return this.Http.delete(this.urlProviders + idProvider, {headers})
   }
   updateProvider(provider: any) {
-    return this.Http.put(this.urlProviders + provider['id'], provider);
+    const headers = new HttpHeaders({ Authorization: this.basicToken});
+    return this.Http.put(this.urlProviders + provider['id'], provider, {headers});
   }
 
 
@@ -30,6 +32,7 @@ export class ProviderService {
 
 
   getProvider(id: any) {
-    return this.Http.get(this.urlProviders + id)
+    const headers = new HttpHeaders({ Authorization: this.basicToken});
+    return this.Http.get(this.urlProviders + id, {headers})
   }
 }
